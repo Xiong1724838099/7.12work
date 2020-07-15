@@ -95,21 +95,35 @@
     <script>
         var titles = document.querySelectorAll(".title a");
         var lists = document.querySelectorAll(".con-list");
+        var num = 0;
+        var t = setInterval(function () {
+            num++;
+            if (num > titles.length - 1) {
+                num = 0;
+            }
+            for (var j = 0; j < titles.length; j++) {
+                lists[j].style.display = "none";
+                titles[j].style.background = "#00B262";
+            }
+           lists[num].style.display = "block";
+           titles[num].style.background="#ccc";
 
+        }, 3000)
         for (let i = 0; i < titles.length; i++) {
             titles[i].onmouseover = function () {
-                for(var j=0;j<lists.length;j++){
-                    lists[i].style.display="none";
+                num=i;
+                for (var j = 0; j < lists.length; j++) {
+                    lists[i].style.display = "none";
                 }
-                lists[i].style.display="block";
+                lists[i].style.display = "block";
                 titles[i].style.color = "#fff";
                 titles[i].style.background = "#00B262";
             }
             titles[i].onmouseout = function () {
-                for(var j=0;j<lists.length;j++){
-                    lists[i].style.display="block";
+                for (var j = 0; j < lists.length; j++) {
+                    lists[i].style.display = "block";
                 }
-                lists[i].style.display="none";
+                lists[i].style.display = "none";
                 titles[i].style.color = "#000";
                 titles[i].style.background = "#ccc"
             }
@@ -117,38 +131,38 @@
         }
         // var x=false;
         // setInterval (function(){
-        
+
         //       for(let i=0;i<titles.length;i++){
         //         titles.style
         //         if(x){
-                    
+
         //             titles[i].style.background="#00B262";
         //             titles[i].style.color="#fff"
         //       }
         //   }
         // },1000)
 
-        var y = 0;
-      setInterval(() => {
-                if (y) {
-                    titles[0].style.background = "#00B262";
-                    titles[1].style.color = "#000";
-                    titles[0].style.color = "#fff";
-                    lists[0].style.display = "block";
-                    titles[1].style.background = 'rgb(241,241,241)';
-                    lists[1].style.display = "none";
-                    y = false;
-                } else {
-                    titles[0].style.color = "#000";
-                    titles[1].style.color = "#fff";
-                    titles[1].style.background = "#00B262";
-                    lists[1].style.display = "block";
-                    titles[0].style.background = 'rgb(241,241,241)';
-                    lists[0].style.display = "none";
-                    y = true
-                }
-            }, 1000);
-       
+    //     var y = 0;
+    //   setInterval(() => {
+    //             if (y) {
+    //                 titles[0].style.background = "#00B262";
+    //                 titles[1].style.color = "#000";
+    //                 titles[0].style.color = "#fff";
+    //                 lists[0].style.display = "block";
+    //                 titles[1].style.background = 'rgb(241,241,241)';
+    //                 lists[1].style.display = "none";
+    //                 y = false;
+    //             } else {
+    //                 titles[0].style.color = "#000";
+    //                 titles[1].style.color = "#fff";
+    //                 titles[1].style.background = "#00B262";
+    //                 lists[1].style.display = "block";
+    //                 titles[0].style.background = 'rgb(241,241,241)';
+    //                 lists[0].style.display = "none";
+    //                 y = true
+    //             }
+    //         }, 1000);
+
     </script>
 </body>
 
